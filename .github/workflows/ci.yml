@@ -1,0 +1,30 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -r requirements.txt
+
+      # esegue il tuo programma
+      - run: python screen.py
+
+      # controllo minimo: esiste l'output principale?
+      - name: Check weights file exists
+        run: test -s outputs/weights_market_cap.csv
+
+      # (facoltativo) carica gli output come artifact scaricabile
+      - name: Upload outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: outputs
+          path: outputs/*
