@@ -181,19 +181,19 @@ def apply_financial_screens(df: pd.DataFrame) -> pd.DataFrame:
                (f["roa_t1"] > f["roa_t"])
     reasons.append((~cond_roa, "roa"))
 
-    # Tier1: (> median t & t+1) OR (in aumento)
+    # Tier1: (> median t & t+1) OR (growth)
     cond_tier1 = ((f["tier1_ratio_t"] > f.get("sector_median_tier1_ratio_t", np.nan)) &
                   (f["tier1_ratio_t1"] > f.get("sector_median_tier1_ratio_t1", np.nan))) | \
                  (f["tier1_ratio_t1"] > f["tier1_ratio_t"])
     reasons.append((~cond_tier1, "tier1_ratio"))
 
-    # LLP/NPL: (> median t & t+1) OR (in aumento)
+    # LLP/NPL: (> median t & t+1) OR (growth)
     cond_prov = ((f["llp_to_npl_t"] > f.get("sector_median_llp_to_npl_t", np.nan)) &
                  (f["llp_to_npl_t1"] > f.get("sector_median_llp_to_npl_t1", np.nan))) | \
                 (f["llp_to_npl_t1"] > f["llp_to_npl_t"])
     reasons.append((~cond_prov, "llp_to_npl"))
 
-    # NIM: (> median t & t+1) OR (in aumento)
+    # NIM: (> median t & t+1) OR (growth)
     cond_nim = ((f["nim_t"] > f.get("sector_median_nim_t", np.nan)) &
                 (f["nim_t1"] > f.get("sector_median_nim_t1", np.nan))) | \
                (f["nim_t1"] > f["nim_t"])
@@ -229,8 +229,8 @@ def run_screen(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFra
 
 def main():
     ap = argparse.ArgumentParser(description="Best of Breed-style screening")
-    ap.add_argument("--input", required=True, help="Percorso CSV fondamentali")
-    ap.add_argument("--outdir", default="outputs", help="Cartella di uscita (default: outputs)")
+    ap.add_argument("--input", required=True, help="Path CSV fundamentals in input")
+    ap.add_argument("--outdir", default="outputs", help="Folder output (default: outputs)")
     args = ap.parse_args()
 
     in_path = Path(args.input)
@@ -246,12 +246,12 @@ def main():
     eligible.to_csv(outdir / "constituents.csv", index=False)
     weights.to_csv(outdir / "weights_market_cap.csv", index=False)
 
-    print(f"\nTotale titoli: {len(df)}")
-    print(f"Passano lo screen: {len(eligible)}")
-    print(f"File generati in: {outdir.resolve()}")
-    print(" - diagnostics.csv  (con motivi di esclusione)")
-    print(" - constituents.csv (lista titoli inclusi)")
-    print(" - weights_market_cap.csv (pesi in base a market cap)")
+    print(f"\nTotal stocks: {len(df)}")
+    print(f"Passed screening: {len(eligible)}")
+    print(f"Files created: {outdir.resolve()}")
+    print(" - diagnostics.csv  (reasons for passing/failing)")
+    print(" - constituents.csv (list stocks)")
+    print(" - weights_market_cap.csv (weights by market cap)")
 
 if __name__ == "__main__":
     main()
