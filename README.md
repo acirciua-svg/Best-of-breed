@@ -1,5 +1,7 @@
 # BEST-OF-BREED — Fundamental Screener (CSV → Weights)
 
+![Demo](docs/demo.png)
+
 Reads a fundamentals CSV, validates the schema, and produces market-cap–weighted outputs.
 
 <!-- CI badge (appears after you add .github/workflows/ci.yml) -->
