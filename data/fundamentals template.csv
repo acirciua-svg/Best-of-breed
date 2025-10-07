@@ -1,0 +1,4 @@
+ticker,name,sector,is_financial,market,analyst_rating,mkt_cap_usd,avg_dollar_vol_usd,eps_g_t,eps_g_t1,eps_g_t2,roic_t,roic_t1,netdebt_to_equity_t,netdebt_to_equity_t1,current_ratio_t,ebitda_margin_t,ebitda_margin_t1,roa_t,roa_t1,tier1_ratio_t,tier1_ratio_t1,llp_to_npl_t,llp_to_npl_t1,nim_t,nim_t1
+AAPL,Apple Inc.,Technology,False,DM,Buy,2700000000000,400000000,10,12,14,16,17,40,38,1.5,30,32,,,,,,,, 
+MSFT,Microsoft Corp.,Technology,False,DM,Buy,2400000000000,350000000,9,11,12,15,16,30,28,1.6,35,36,,,,,,,,
+JPM,JPMorgan,Financials,True,DM,Neutral,420000000000,300000000,7,8,9,,,,,,,,1.5,1.7,14,14.5,130,140,3.0,3.1

@@ -1,0 +1,19 @@
+| Column                                            | Meaning                                                                                                        | Example                                |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| ticker                                            | The company’s stock symbol or trading code.                                                                    | `AAPL`, `MSFT`, `JPM`                  |
+| name                                              | The company’s full name.                                                                                       | `Apple Inc.`                           |
+| sector                                            | The sector or industry classification.                                                                         | `Technology`, `Financials`             |
+| is_financial                                      | A boolean flag: `True` if it’s a financial institution (like a bank), `False` otherwise.                       | `False` for Apple, `True` for JPMorgan |
+| market                                            | Market type or region, e.g., `DM` (Developed Market) or `EM` (Emerging Market).                                | `DM`                                   |
+| analyst_rating                                    | Qualitative analyst recommendation (e.g., `Buy`, `Hold`, `Neutral`, `Sell`).                                   | `Buy`, `Neutral`                       |
+| mkt_cap_usd                                       | Market capitalization in USD — total value of all outstanding shares.                                          | `2700000000000` (=$2.7T)               |
+| avg_dollar_vol_usd                                | Average daily dollar trading volume — measures liquidity.                                                      | `400000000`                            |
+| eps_g_t, eps_g_t1, eps_g_t2                       | Expected Earnings Per Share growth for current year (`t`), next year (`t+1`), and two years ahead (`t+2`).     | `10`, `12`, `14`                       |
+| roic_t, roic_t1                                   | Return on Invested Capital (current and previous period) — efficiency of capital use.                          | `16`, `17`                             |
+| netdebt_to_equity_t, netdebt_to_equity_t1         | Leverage ratio: Net debt / Shareholders’ equity, current and previous year.                                    | `40`, `38`                             |
+| current_ratio_t                                   | Current ratio = Current assets / Current liabilities — liquidity measure.                                      | `1.5`                                  |
+| ebitda_margin_t, ebitda_margin_t1                 | EBITDA margin (profitability ratio) current and previous year.                                                 | `30`, `32`                             |
+| roa_t, roa_t1                                     | Return on Assets, used for financial institutions.                                                             | `1.5`, `1.7`                           |
+| tier1_ratio_t, tier1_ratio_t1                     | Tier 1 capital ratio, a key bank solvency measure.                                                             | `14`, `14.5`                           |
+| llp_to_npl_t, llp_to_npl_t1                       | Ratio of loan loss provisions to non-performing loans — another bank risk metric.                              | `130`, `140`                           |
+| nim_t, nim_t1                                     | Net Interest Margin, measuring interest income vs. earning assets.                                             | `3.0`, `3.1`                           |
