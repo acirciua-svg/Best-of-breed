@@ -16,7 +16,7 @@ jobs:
       - run: python -m pip install -r requirements.txt
 
       # esegue il tuo programma
-      - run: python screen.py
+      - run: python screen.py --input data/fundamentals.csv --outdir outputs
 
       # controllo minimo: esiste l'output principale?
       - name: Check weights file exists

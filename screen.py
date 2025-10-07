@@ -5,8 +5,6 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 
-# python screen.py --input data/fundamentals.csv --outdir outputs
-
 # —— Parameters BoB (editable) ——
 DM_MC_MIN = 25e9      # Developed Markets: market cap min USD
 DM_ADV_MIN = 25e6     # Developed Markets: average dollar volume min USD
